@@ -1,4 +1,4 @@
-package com.cardgame.game;
+package cardgames.games;
 
 public class Speed {
 

@@ -1,7 +1,9 @@
-package com.cardgame.main;
+package cardgames.main;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
+
+import cardgame.objects.GameObject;
 
 public class ObjectHandler {
 	LinkedList<GameObject> object = new LinkedList<GameObject>();

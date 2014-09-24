@@ -1,4 +1,4 @@
-package com.cardgame.main;
+package cardgames.main;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -17,7 +17,7 @@ public class BootStrap {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				new CardGame(Game.SPACE_INVADERS);
+				new CardGame(Games.SPACE_INVADERS);
 			}
 		});
 		frame.add(button);
@@ -28,7 +28,7 @@ public class BootStrap {
 	
 	
 	public static void main(String[] args) {
-		new CardGame(Game.SPACE_INVADERS);
+		new CardGame(Games.SPACE_INVADERS);
 		//new BootStrap();
 	}
 }

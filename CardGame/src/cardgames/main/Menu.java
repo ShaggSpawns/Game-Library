@@ -1,4 +1,4 @@
-package com.cardgame.main;
+package cardgames.main;
 
 public class Menu {
 

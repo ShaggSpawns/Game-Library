@@ -1,13 +1,13 @@
-package com.cardgame.main;
+package cardgame.objects;
 
 import java.awt.Graphics;
 
 public abstract class GameObject {
 	protected int x, y;
-	protected ID id;
+	protected ObjectIDs id;
 	protected int velX, velY;
 	
-	public GameObject(int x, int y, ID id) {
+	public GameObject(int x, int y, ObjectIDs id) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
@@ -24,7 +24,7 @@ public abstract class GameObject {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public void setID(ID id) {
+	public void setID(ObjectIDs id) {
 		this.id = id;
 	}
 	public void setVelX(int velX) {
@@ -41,7 +41,7 @@ public abstract class GameObject {
 	public int getY() {
 		return y;
 	}
-	public ID getID() {
+	public ObjectIDs getID() {
 		return id;
 	}
 	public int getVelX() {

@@ -1,4 +1,4 @@
-package com.cardgame.main;
+package cardgames.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -6,7 +6,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-import com.cardgame.game.Space_Invaders;
+import cardgame.objects.ObjectIDs;
+import cardgame.objects.Player;
+import cardgames.games.Space_Invaders;
 
 public class CardGame extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1550691097823471818L;
@@ -19,16 +21,16 @@ public class CardGame extends Canvas implements Runnable {
 	
 	private static ObjectHandler oHandler;
 	
-	public CardGame(Game game) {
+	public CardGame(Games game) {
 		new GameWindow(WIDTH, HEIGHT, "Card Game", this);
 		oHandler = new ObjectHandler();
 		
 		switch(game) {
 		case WAR:
-			new com.cardgame.game.War();
+			new cardgames.games.War();
 			break;
 		case SPEED:
-			new com.cardgame.game.Speed();
+			new cardgames.games.Speed();
 			break;
 		case SPACE_INVADERS:
 			new Space_Invaders();
@@ -111,11 +113,11 @@ public class CardGame extends Canvas implements Runnable {
 	public void initializeWar() {
 		Random r = new Random();
 		for (int i = 0; i < 50; i++) {
-			oHandler.addObject(new Player(r.nextInt(1280), r.nextInt(720), ID.Player));
+			oHandler.addObject(new Player(r.nextInt(1280), r.nextInt(720), ObjectIDs.Player));
 		}
 	}
 	
 	public void initializeSpeed() {
-		oHandler.addObject(new Player(190, 190, ID.Player));
+		oHandler.addObject(new Player(190, 190, ObjectIDs.Player));
 	}
 }

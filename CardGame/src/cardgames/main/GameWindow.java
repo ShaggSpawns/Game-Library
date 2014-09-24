@@ -1,4 +1,4 @@
-package com.cardgame.main;
+package cardgames.main;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -13,7 +13,7 @@ public class GameWindow extends Canvas {
 	private JButton button = new JButton("Stop");
 	public static JFrame frame;
 	
-	public GameWindow(int width, int height, String title, CardGame game) {
+	public GameWindow(int width, int height, String title, final CardGame game) {
 		frame = new JFrame(title);
 		frame.setPreferredSize(new Dimension(width, height));
 		frame.setMaximumSize(new Dimension(width, height));
