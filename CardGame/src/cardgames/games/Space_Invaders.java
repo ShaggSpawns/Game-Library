@@ -4,12 +4,12 @@ import cardgame.objects.Alien;
 import cardgame.objects.ObjectIDs;
 import cardgame.objects.Player;
 import cardgames.main.CardGame;
-import cardgames.main.GameWindow;
 import cardgames.main.ObjectHandler;
 
 
 public class Space_Invaders {
 	ObjectHandler oHandler = CardGame.getObjectHandler();
+	Alien[] alien;
 	public Space_Invaders() {
 		int SPACING = 64;
 		Alien a1 = new Alien(0, 50, ObjectIDs.Alien);
@@ -32,7 +32,8 @@ public class Space_Invaders {
 	
 	private void addAliens(int quantity) {
 		for (int i = 0; i < quantity; i++) {
-			oHandler.addObject(new Alien(0, 50, ObjectIDs.Alien));
+			alien[0] = {oHandler.addObject(new Alien(0, 50, ObjectIDs.Alien))};
+			
 		}
 	}
 }
