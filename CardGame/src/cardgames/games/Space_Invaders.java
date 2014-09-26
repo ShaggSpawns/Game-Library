@@ -1,16 +1,12 @@
 package cardgames.games;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import cardgame.objects.Alien;
 import cardgame.objects.ObjectIDs;
 import cardgame.objects.Player;
 import cardgames.main.CardGame;
 import cardgames.main.ObjectHandler;
 
 
-public class Space_Invaders implements KeyListener {
+public class Space_Invaders {
 	ObjectHandler oHandler = CardGame.getObjectHandler();
 	//List<Alien> alien = new ArrayList<Alien>();
 	//Alien[] alien;
@@ -20,34 +16,6 @@ public class Space_Invaders implements KeyListener {
 	
 	public Space_Invaders() {
 		oHandler.addObject(p1);
-	}
-	
-	private void addAlien(int quantity) {
-		
-	}
-	
-	private Alien getAlien(int i) {
-		return alien[i];
-	}
-	
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		if (e.getKeyCode() == 77) {
-			p1.setVelY(3);
-		}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 }
 /*public Space_Invaders() {

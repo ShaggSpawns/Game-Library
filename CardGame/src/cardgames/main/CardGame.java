@@ -22,8 +22,9 @@ public class CardGame extends Canvas implements Runnable {
 	private static ObjectHandler oHandler;
 	
 	public CardGame(Games game) {
-		new GameWindow(WIDTH, HEIGHT, "Card Game", this);
 		oHandler = new ObjectHandler();
+		this.addKeyListener(new KeyInput(oHandler));
+		new GameWindow(WIDTH, HEIGHT, "Card Game", this);
 		
 		switch(game) {
 		case WAR:
