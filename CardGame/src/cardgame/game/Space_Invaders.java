@@ -1,9 +1,9 @@
-package cardgames.games;
+package cardgame.game;
 
-import cardgame.objects.ObjectIDs;
-import cardgame.objects.Player;
-import cardgames.main.CardGame;
-import cardgames.main.ObjectHandler;
+import cardgame.main.CardGame;
+import cardgame.main.ObjectHandler;
+import cardgame.object.ObjectIDs;
+import cardgame.object.Player;
 
 
 public class Space_Invaders {

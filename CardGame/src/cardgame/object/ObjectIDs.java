@@ -1,4 +1,4 @@
-package cardgame.objects;
+package cardgame.object;
 
 public enum ObjectIDs {
 	Player,

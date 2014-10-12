@@ -1,4 +1,4 @@
-package cardgames.main;
+package cardgame.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -6,9 +6,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-import cardgame.objects.ObjectIDs;
-import cardgame.objects.Player;
-import cardgames.games.Space_Invaders;
+import cardgame.object.ObjectIDs;
+import cardgame.object.Player;
 
 public class CardGame extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1550691097823471818L;
@@ -16,40 +15,25 @@ public class CardGame extends Canvas implements Runnable {
 	public static final int[] ASPECT_RATIO = {16, 9};
 	public static final int HEIGHT = 720, WIDTH = HEIGHT * ASPECT_RATIO[0] / ASPECT_RATIO[1];
 	
-	private Thread thread;
+	private Thread mainThread;
 	public boolean running = false;
 	
-	private static ObjectHandler oHandler;
+	protected static ObjectHandler oHandler;
 	
-	public CardGame(Games game) {
+	public CardGame() {
 		oHandler = new ObjectHandler();
-		this.addKeyListener(new KeyInput(oHandler));
 		new GameWindow(WIDTH, HEIGHT, "Card Game", this);
-		
-		switch(game) {
-		case WAR:
-			new cardgames.games.War();
-			break;
-		case SPEED:
-			new cardgames.games.Speed();
-			break;
-		case SPACE_INVADERS:
-			new Space_Invaders();
-			break;
-		default:
-			break; 
-		}
 	}
 	
 	public synchronized void start() {
-		thread = new Thread(this);
-		thread.start();
+		mainThread = new Thread(this);
+		mainThread.start();
 		running = true;
 	}
 	
 	public synchronized void stop() {
 		try {
-			thread.join();
+			mainThread.join();
 			running = false;
 		} catch(Exception e) {
 			e.printStackTrace();

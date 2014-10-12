@@ -1,4 +1,4 @@
-package cardgames.main;
+package cardgame.main;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
