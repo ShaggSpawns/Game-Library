@@ -22,11 +22,15 @@ public class ObjectHandler {
 		}
 	}
 	
-	public void addObject(GameObject object) {
+	public void add(GameObject object) {
 		this.object.add(object);
 	}
 	
-	public void removeObject(GameObject object) {
+	public void remove(GameObject object) {
 		this.object.remove(object);
+	}
+	
+	public void removeAll() {
+		object.removeAll(object);
 	}
 }

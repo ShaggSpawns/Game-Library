@@ -14,10 +14,11 @@ public class CardGame extends Canvas implements Runnable {
 	private Thread mainThread;
 	public boolean running = false;
 	
-	protected static ObjectHandler oHandler;
+	protected static ObjectHandler oHandler = new ObjectHandler();
+	protected static Graphics graphics;
+	private static Color backgroundColor = Color.BLACK;
 	
 	public CardGame() {
-		oHandler = new ObjectHandler();
 		new GameWindow(WIDTH, HEIGHT, "Card Game", this);
 	}
 	
@@ -76,9 +77,9 @@ public class CardGame extends Canvas implements Runnable {
 			return;
 		}
 		
-		Graphics graphics = buffStrategy.getDrawGraphics();
+		graphics = buffStrategy.getDrawGraphics();
 		
-		graphics.setColor(Color.black);
+		graphics.setColor(backgroundColor);
 		graphics.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		oHandler.render(graphics);
@@ -89,5 +90,13 @@ public class CardGame extends Canvas implements Runnable {
 	
 	public static ObjectHandler getObjectHandler() {
 		return oHandler;
+	}
+	
+	public static void setBackgroundColor(Color backgroundColor) {
+		CardGame.backgroundColor = backgroundColor;
+	}
+	
+	public Color getBackgroundColor() {
+		return backgroundColor;
 	}
 }

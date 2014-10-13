@@ -1,39 +1,53 @@
 package cardgame.game.pong;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.Random;
 
-public class InputHandler implements KeyListener, MouseListener {
+import javafx.scene.input.MouseButton;
+import cardgame.main.CardGame;
+
+public class InputHandler implements KeyListener, MouseListener, MouseMotionListener {
 	public void keyTyped(KeyEvent e) {
 	}
 
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
-		case 37: // Left Arrow
-			Pong.p2.setVelX(-1);
-			break;
 		case 38: // Up Arrow
-			Pong.p2.setVelY(-1);
-			break;
-		case 39: // Right Arrow
-			Pong.p2.setVelX(1);
+			if (Pong.p2.getY() > 0) {
+				Pong.p2.setVelY(-3);
+			} else {
+				Pong.p2.setVelY(0);
+				Pong.p2.setY(0);
+			}
 			break;
 		case 40: // Down Arrow
-			Pong.p2.setVelY(1);
+			if (Pong.p2.getY() < (CardGame.HEIGHT - Pong.p1.getHeight())) {
+				Pong.p2.setVelY(3);
+			} else {
+				Pong.p2.setVelY(0);
+				Pong.p2.setY((CardGame.HEIGHT - Pong.p1.getHeight()));
+			}
 			break;
 		case 87: // w
-			Pong.p1.setVelY(-1);
+			if (Pong.p1.getY() > 0) {
+				Pong.p1.setVelY(-3);
+			} else {
+				Pong.p1.setVelY(0);
+				Pong.p1.setY(0);
+			}
 			break;
-		case 65: // a
-			Pong.p1.setVelX(-1);
-			break;
-		case 68: // s
-			Pong.p1.setVelX(1);
-			break;
-		case 83: // d
-			Pong.p1.setVelY(1);
+		case 83: // s
+			if (Pong.p1.getY() < (CardGame.HEIGHT - Pong.p1.getHeight())) {
+				Pong.p1.setVelY(3);
+			} else {
+				Pong.p1.setVelY(0);
+				Pong.p1.setY((CardGame.HEIGHT - Pong.p1.getHeight()));
+			}
 			break;
 		default:
 			break;
@@ -42,14 +56,8 @@ public class InputHandler implements KeyListener, MouseListener {
 
 	public void keyReleased(KeyEvent e) {
 		switch(e.getKeyCode()) {
-		case 37: // Left Arrow
-			Pong.p2.setVelX(0);
-			break;
 		case 38: // Up Arrow
 			Pong.p2.setVelY(0);
-			break;
-		case 39: // Right Arrow
-			Pong.p2.setVelX(0);
 			break;
 		case 40: // Down Arrow
 			Pong.p2.setVelY(0);
@@ -57,13 +65,7 @@ public class InputHandler implements KeyListener, MouseListener {
 		case 87: // w
 			Pong.p1.setVelY(0);
 			break;
-		case 65: // a
-			Pong.p1.setVelX(0);
-			break;
-		case 68: // s
-			Pong.p1.setVelX(0);
-			break;
-		case 83: // d
+		case 83: // s
 			Pong.p1.setVelY(0);
 			break;
 		default:
@@ -75,8 +77,12 @@ public class InputHandler implements KeyListener, MouseListener {
 	}
 
 	public void mousePressed(MouseEvent e) {
-		Pong.p1.setX(e.getX());
-		Pong.p1.setY(e.getY());
+		cardgame.main.CardGame.setBackgroundColor(new Color(new Random().nextInt(255), new Random().nextInt(255), new Random().nextInt(255)));
+		/*if (e.getButton() == 1) {
+			Pong.p1.setY(e.getY());
+		} else {
+			Pong.p2.setY(e.getY());
+		}*/
 	}
 
 	public void mouseReleased(MouseEvent e) {
@@ -86,5 +92,16 @@ public class InputHandler implements KeyListener, MouseListener {
 	}
 
 	public void mouseExited(MouseEvent e) {
+	}
+
+	public void mouseDragged(MouseEvent e) {
+		if (e.getButton() == MouseEvent.BUTTON2) {
+			Pong.p1.setY(e.getY());
+		} else if (e.getButton() == MouseEvent.BUTTON1){
+			Pong.p2.setY(e.getY());
+		}
+	}
+
+	public void mouseMoved(MouseEvent e) {
 	}
 }
