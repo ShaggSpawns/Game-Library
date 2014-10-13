@@ -2,14 +2,13 @@ package cardgame.game.pong;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class KeyInput implements KeyListener {
-	@Override
+public class InputHandler implements KeyListener, MouseListener {
 	public void keyTyped(KeyEvent e) {
-		
 	}
 
-	@Override
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 		case 37: // Left Arrow
@@ -41,7 +40,6 @@ public class KeyInput implements KeyListener {
 		}
 	}
 
-	@Override
 	public void keyReleased(KeyEvent e) {
 		switch(e.getKeyCode()) {
 		case 37: // Left Arrow
@@ -71,5 +69,22 @@ public class KeyInput implements KeyListener {
 		default:
 			break;
 		}
+	}
+
+	public void mouseClicked(MouseEvent e) {
+	}
+
+	public void mousePressed(MouseEvent e) {
+		Pong.p1.setX(e.getX());
+		Pong.p1.setY(e.getY());
+	}
+
+	public void mouseReleased(MouseEvent e) {
+	}
+
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	public void mouseExited(MouseEvent e) {
 	}
 }

@@ -1,15 +1,19 @@
 package cardgame.object;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public abstract class GameObject {
-	protected int x, y;
-	protected ObjectIDs id;
-	protected int velX, velY;
+	protected int x, y, width, height, velX, velY;
+	protected ObjectID id;
+	protected Color color;
 	
-	public GameObject(int x, int y, ObjectIDs id) {
+	public GameObject(int x, int y, int width, int height, Color color, ObjectID id) {
 		this.x = x;
 		this.y = y;
+		this.width = width;
+		this.height = height;
+		this.color = color;
 		this.id = id;
 	}
 	
@@ -24,14 +28,23 @@ public abstract class GameObject {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public void setID(ObjectIDs id) {
-		this.id = id;
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public void setHeight(int height) {
+		this.height = height;
 	}
 	public void setVelX(int velX) {
 		this.velX = velX;
 	}
 	public void setVelY(int velY) {
 		this.velY = velY;
+	}
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	public void setID(ObjectID id) {
+		this.id = id;
 	}
 	
 	// Getters
@@ -41,13 +54,22 @@ public abstract class GameObject {
 	public int getY() {
 		return y;
 	}
-	public ObjectIDs getID() {
-		return id;
+	public int getWidth() {
+		return width;
+	}
+	public int getHeight() {
+		return height;
 	}
 	public int getVelX() {
 		return velX;
 	}
 	public int getVelY() {
 		return velY;
+	}
+	public Color getColor() {
+		return color;
+	}
+	public ObjectID getID() {
+		return id;
 	}
 }

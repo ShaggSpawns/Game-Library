@@ -3,10 +3,16 @@ package cardgame.object;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javafx.scene.shape.Rectangle;
+
 public class Player extends GameObject {
 	
-	public Player(int x, int y, ObjectIDs id) {
-		super(x, y, id);
+	public Player(int x, int y, int width, int height, Color color, ObjectID id) {
+		super(x, y, width, height, color, id);
+	}
+	
+	public Player(Rectangle r, Color color, ObjectID id) {
+		super((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight(), color, id);
 	}
 
 	public void tick() {
@@ -15,7 +21,7 @@ public class Player extends GameObject {
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.white);
-		g.fillRect(x, y, 32, 32);
+		g.setColor(color);
+		g.fillRect(x, y, width, height);
 	}
 }

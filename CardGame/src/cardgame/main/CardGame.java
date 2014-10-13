@@ -4,10 +4,6 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.util.Random;
-
-import cardgame.object.ObjectIDs;
-import cardgame.object.Player;
 
 public class CardGame extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1550691097823471818L;
@@ -93,16 +89,5 @@ public class CardGame extends Canvas implements Runnable {
 	
 	public static ObjectHandler getObjectHandler() {
 		return oHandler;
-	}
-	
-	public void initializeWar() {
-		Random r = new Random();
-		for (int i = 0; i < 50; i++) {
-			oHandler.addObject(new Player(r.nextInt(1280), r.nextInt(720), ObjectIDs.Player));
-		}
-	}
-	
-	public void initializeSpeed() {
-		oHandler.addObject(new Player(190, 190, ObjectIDs.Player));
 	}
 }
