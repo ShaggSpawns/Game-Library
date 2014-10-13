@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.Random;
 
-import javafx.scene.input.MouseButton;
 import cardgame.main.CardGame;
 
 public class InputHandler implements KeyListener, MouseListener, MouseMotionListener {
