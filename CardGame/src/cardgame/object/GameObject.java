@@ -5,16 +5,14 @@ import java.awt.Graphics;
 
 public abstract class GameObject {
 	protected int x, y, width, height, velX, velY;
-	protected ObjectID id;
 	protected Color color;
 	
-	public GameObject(int x, int y, int width, int height, Color color, ObjectID id) {
+	public GameObject(int x, int y, int width, int height, Color color) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.color = color;
-		this.id = id;
 	}
 	
 	public abstract void tick();
@@ -43,9 +41,6 @@ public abstract class GameObject {
 	public void setColor(Color color) {
 		this.color = color;
 	}
-	public void setID(ObjectID id) {
-		this.id = id;
-	}
 	
 	// Getters
 	public int getX() {
@@ -68,8 +63,5 @@ public abstract class GameObject {
 	}
 	public Color getColor() {
 		return color;
-	}
-	public ObjectID getID() {
-		return id;
 	}
 }

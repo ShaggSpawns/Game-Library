@@ -2,8 +2,11 @@ package cardgame.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+
+import javax.swing.JFrame;
 
 public class CardGame extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1550691097823471818L;
@@ -13,13 +16,27 @@ public class CardGame extends Canvas implements Runnable {
 	
 	private Thread mainThread;
 	public boolean running = false;
+	public JFrame frame;
 	
 	protected static ObjectHandler oHandler = new ObjectHandler();
 	protected static Graphics graphics;
 	private static Color backgroundColor = Color.BLACK;
 	
 	public CardGame() {
-		new GameWindow(WIDTH, HEIGHT, "Card Game", this);
+		frame = new JFrame("Card Games");
+		frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		frame.setMaximumSize(new Dimension(WIDTH, HEIGHT));
+		frame.setMinimumSize(new Dimension(WIDTH, HEIGHT));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.add(this);
+		frame.setVisible(true);
+		this.start();
+	}
+	
+	public static void main(String[] args) {
+		new cardgame.main.Pong();
 	}
 	
 	public synchronized void start() {
@@ -59,7 +76,7 @@ public class CardGame extends Canvas implements Runnable {
 			
 			if(System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-				System.out.println("FPS: " + frames);
+				System.out.println("FPS: " + "[" + frames + "]");
 				frames = 0;
 			}
 		}

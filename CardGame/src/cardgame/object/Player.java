@@ -7,12 +7,12 @@ import javafx.scene.shape.Rectangle;
 
 public class Player extends GameObject {
 	
-	public Player(int x, int y, int width, int height, Color color, ObjectID id) {
-		super(x, y, width, height, color, id);
+	public Player(int x, int y, int width, int height, Color color) {
+		super(x, y, width, height, color);
 	}
 	
-	public Player(Rectangle r, Color color, ObjectID id) {
-		super((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight(), color, id);
+	public Player(Rectangle r, Color color) {
+		super((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight(), color);
 	}
 
 	public void tick() {
