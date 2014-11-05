@@ -9,6 +9,8 @@ import java.util.Random;
 
 import cardgame.object.Ball;
 import cardgame.object.Button;
+import cardgame.object.GameObject;
+import cardgame.object.PButton;
 import cardgame.object.Player;
 
 public class Pong extends CardGame implements KeyListener, MouseListener {
@@ -28,7 +30,8 @@ public class Pong extends CardGame implements KeyListener, MouseListener {
 		
 		oHandler.add(p1);
 		oHandler.add(p2);
-		oHandler.add(button);
+		oHandler.add(ball);
+		oHandler.add((GameObject)new PButton("Elf"));
 		
 	}
 	
@@ -39,7 +42,7 @@ public class Pong extends CardGame implements KeyListener, MouseListener {
 		switch(e.getKeyCode()) {
 		case 38: // Up Arrow
 			if (Pong.p2.getY() > 0) {
-				Pong.p2.setVelY(-3);
+				Pong.p2.setVelY(-6);
 			} else {
 				Pong.p2.setVelY(0);
 				Pong.p2.setY(0);
@@ -47,7 +50,7 @@ public class Pong extends CardGame implements KeyListener, MouseListener {
 			break;
 		case 40: // Down Arrow
 			if (Pong.p2.getY() < (CardGame.HEIGHT - Pong.p1.getHeight())) {
-				Pong.p2.setVelY(3);
+				Pong.p2.setVelY(6);
 			} else {
 				Pong.p2.setVelY(0);
 				Pong.p2.setY((CardGame.HEIGHT - Pong.p1.getHeight()));
@@ -55,7 +58,7 @@ public class Pong extends CardGame implements KeyListener, MouseListener {
 			break;
 		case 87: // w
 			if (Pong.p1.getY() > 0) {
-				Pong.p1.setVelY(-3);
+				Pong.p1.setVelY(-6);
 			} else {
 				Pong.p1.setVelY(0);
 				Pong.p1.setY(0);
@@ -63,7 +66,7 @@ public class Pong extends CardGame implements KeyListener, MouseListener {
 			break;
 		case 83: // s
 			if (Pong.p1.getY() < (CardGame.HEIGHT - Pong.p1.getHeight())) {
-				Pong.p1.setVelY(3);
+				Pong.p1.setVelY(6);
 			} else {
 				Pong.p1.setVelY(0);
 				Pong.p1.setY((CardGame.HEIGHT - Pong.p1.getHeight()));

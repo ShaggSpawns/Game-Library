@@ -90,7 +90,7 @@ public class CardGame extends Canvas implements Runnable {
 	private void render() {
 		BufferStrategy buffStrategy = this.getBufferStrategy();
 		if(buffStrategy == null) {
-			this.createBufferStrategy(3);
+			this.createBufferStrategy(2);
 			return;
 		}
 		

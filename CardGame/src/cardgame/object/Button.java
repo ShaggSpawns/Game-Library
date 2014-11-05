@@ -2,8 +2,7 @@ package cardgame.object;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
-import javafx.scene.shape.Rectangle;
+import java.awt.Rectangle;
 
 public class Button extends GameObject {
 	public Color tempColor;
